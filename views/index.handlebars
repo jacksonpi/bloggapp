@@ -1,0 +1,34 @@
+<div class="jumbotron">
+  <h1 class="display-4">Blogasso {{usuarios.nome}}</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  <p></p>
+
+  {{#if user}}
+       
+    {{else}}
+        <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Crie uma conta</a>
+    {{/if}}
+  
+ 
+</div><hr>
+{{#if user}}
+   <h2>Postagens rescentes:</h2>
+
+{{#each postagens}}
+<div class="card mt-4">
+  <div class="card-body mt-3">
+    <h3>{{titulo}}</h3>
+    <p>{{descricao}}</p>
+    <a href="/postagem/{{slug}}"><button class="btb btn-success">Ler mais</button></a>
+    <hr>
+    <small>Categoria: {{categoria.nome}}</small><br>
+    <small>Data da publicação: {{data}}</small>
+  </div>
+</div>
+{{else}}
+  <h5>Nenhuma postagem para exibir</h5>
+{{/each}}
+{{else}}
+   <h1>Faça parte de nossa comunidade!</h1>
+{{/if}}
